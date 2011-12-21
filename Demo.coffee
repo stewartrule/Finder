@@ -1,8 +1,3 @@
-Finder
----------------
-
-
-```javascript
 {Finder} = require './Finder'
 
 finder = new Finder
@@ -66,4 +61,3 @@ console.log res
 ###
 { 'Symfony/vendor/symfony/vendors.php': 1.40625 }
 ###
-```
