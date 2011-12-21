@@ -2,7 +2,7 @@ Finder
 ---------------
 
 
-```javascript
+```coffeescript
 {Finder} = require './Finder'
 
 finder = new Finder
