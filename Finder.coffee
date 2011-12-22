@@ -40,6 +40,14 @@ class Finder
 				return true
 			false
 		@
+	
+	pathExcludes: (substr) ->
+		@filter (file) ->
+			folderPath = path.dirname file
+			if folderPath.indexOf(substr) > -1
+				return false
+			true
+		@
 
 	# return size in bytes, kb, mb or gb
 	_getUnitSize: (size,unit='bytes') ->
@@ -177,13 +185,15 @@ class Finder
 			results = []
 			for file in files
 				file = dir + '/' + file
-				stats = fs.statSync file
-				if stats && stats.isDirectory()
-					unless @maxDepthLevel and nextDepth > @maxDepthLevel
-						res = @_readDir file, nextDepth
-						results = results.concat res
-				else
-					results.push file
+				if path.existsSync file
+					stats = fs.statSync file
+					if stats 
+						if stats.isDirectory()
+							unless @maxDepthLevel and nextDepth > @maxDepthLevel
+								res = @_readDir file, nextDepth
+								results = results.concat res
+						else if stats.isFile()
+							results.push file
 			return results
 		else
 			console.log "path '#{dir}' does not exist"
