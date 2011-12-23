@@ -1,6 +1,29 @@
 Finder
 ---------------
 
+### api ###
+
+
+*	contains (substr) 
+*	pathContains (substr) 
+*	pathExcludes (substr) 
+*	lte (size, unit) 
+*	lt (size, unit) 
+*	gte (size, unit) 
+*	gt (size, unit) 
+*	in () 
+*	include () 
+*	exclude () 
+*	maxDepth (level) 
+*	filter (fn) 
+*	find (includeStats) 
+*	findStat (prop) 
+*	sizes (unit) 
+*	cTimes () 
+*	mTimes ()
+
+
+### example ###
 
 ```coffeescript
 {Finder} = require './Finder'
